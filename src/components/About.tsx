@@ -1,10 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Briefcase, Languages } from "lucide-react";
-
 const About = () => {
-  return (
-    <section id="about" className="py-20 px-4 bg-secondary/20">
+  return <section id="about" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -35,7 +33,7 @@ const About = () => {
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <Briefcase className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground">Roller</h3>
+              <h3 className="text-xl font-semibold text-foreground">Erfarenheter</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               <Badge variant="secondary">Lärare</Badge>
@@ -76,8 +74,6 @@ const About = () => {
           </p>
         </Card>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
