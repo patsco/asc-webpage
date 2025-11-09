@@ -13,7 +13,7 @@ const Contact = () => {
     name: "",
     position: "",
     school: "",
-    message: "Jag önskar kontakt för ett uppstartsmöte."
+    message: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {

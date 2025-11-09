@@ -12,7 +12,7 @@ interface ServiceCategory {
 }
 
 const Services = () => {
-  const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [expandedServices, setExpandedServices] = useState<Set<string>>(new Set());
 
   const services: ServiceCategory[] = [
     {
@@ -66,7 +66,15 @@ const Services = () => {
   ];
 
   const toggleService = (serviceId: string) => {
-    setExpandedService(expandedService === serviceId ? null : serviceId);
+    setExpandedServices(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(serviceId)) {
+        newSet.delete(serviceId);
+      } else {
+        newSet.add(serviceId);
+      }
+      return newSet;
+    });
   };
 
   return (
@@ -83,7 +91,7 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((service) => {
-            const isExpanded = expandedService === service.id;
+            const isExpanded = expandedServices.has(service.id);
             
             return (
               <Card 
