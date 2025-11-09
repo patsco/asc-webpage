@@ -1,8 +1,88 @@
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { GraduationCap, Briefcase, Languages } from "lucide-react";
+import { GraduationCap, Award, Briefcase } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
 const About = () => {
-  return <section id="about" className="py-20 px-4 bg-secondary/20">
+  const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers = sectionRefs.current.map((ref, index) => {
+      if (!ref) return null;
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setVisibleSections((prev) => new Set(prev).add(index));
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer) => observer?.disconnect());
+    };
+  }, []);
+
+  const sections = [
+    {
+      icon: GraduationCap,
+      title: "Utbildning",
+      items: [
+        "Master i pedagogik med specialisering i matematikdidaktik",
+        "Vidareutbildning i dyslexi och dyskalkyli",
+        "Specialpedagogisk examen med fokus på NPF",
+        "Fortbildning i ABA och TEACCH-metoder",
+        "Certifiering i Functional Behavior Assessment",
+        "Vidareutbildning i traumamedveten pedagogik",
+        "Kurs i systematiskt kvalitetsarbete inom skolväsendet",
+        "Fortbildning i formativ bedömning och feedback",
+        "Utbildning i konflikhantering och krisinterventioner",
+        "Forskningsmetodik och evidensbaserad praktik"
+      ]
+    },
+    {
+      icon: Briefcase,
+      title: "Erfarenheter",
+      items: [
+        "15+ års erfarenhet som lärare i grundskolan",
+        "Speciallärare med fokus på matematiksvårigheter",
+        "Specialpedagog för elever med NPF-diagnoser",
+        "Biträdande rektor med ansvar för pedagogisk utveckling",
+        "Föreläsare på lärarutbildningar och kompetensutvecklingsdagar",
+        "Utvecklingsledare för skolövergripande förbättringsarbete",
+        "Handledare för lärare och pedagogisk personal",
+        "Konsult för skolhuvudmän i organisationsutveckling",
+        "Projektledare för implementering av digitala läromedel",
+        "Mentor för nyanställda lärare och studenter"
+      ]
+    },
+    {
+      icon: Award,
+      title: "Utmärkelser",
+      items: [
+        "Utmärkelse för innovativt pedagogiskt arbete 2022",
+        "Nominerad till Årets specialpedagog 2021",
+        "Pris för framgångsrikt inkluderingsarbete",
+        "Erkännande för implementering av forskningsbaserade metoder",
+        "Diplom för excellent handledning av pedagogisk personal",
+        "Utmärkelse för framstående insatser inom matematikundervisning",
+        "Hedersomnämnande för arbete med utsatta elevgrupper",
+        "Kommunalt pris för skolutveckling och kvalitetsarbete",
+        "Erkännande för mångkulturell pedagogisk kompetens",
+        "Certifiering som Qualified Educational Consultant"
+      ]
+    }
+  ];
+
+  return (
+    <section id="about" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -13,56 +93,52 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <GraduationCap className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground">Kompetens</h3>
-            </div>
-            <ul className="space-y-2 text-foreground/80">
-              <li>• Master i pedagogik</li>
-              <li>• Dyskalkyli-diplom</li>
-              <li>• Erfarenhet med NPF och SU-grupper</li>
-            </ul>
-          </Card>
+        <div className="space-y-12">
+          {sections.map((section, index) => {
+            const Icon = section.icon;
+            return (
+              <div
+                key={index}
+                ref={(el) => (sectionRefs.current[index] = el)}
+                className={`transition-all duration-700 ${
+                  visibleSections.has(index)
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+              >
+                <Card className="p-8 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-semibold text-foreground">
+                      {section.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Placeholder for future image */}
+                  <div className="mb-6 h-48 rounded-lg bg-muted/30 flex items-center justify-center text-muted-foreground/50 text-sm">
+                    Bildyta för {section.title}
+                  </div>
 
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Briefcase className="h-6 w-6 text-primary" />
+                  <ul className="grid md:grid-cols-2 gap-3">
+                    {section.items.map((item, itemIndex) => (
+                      <li
+                        key={itemIndex}
+                        className="flex items-start gap-2 text-foreground/80"
+                      >
+                        <span className="text-primary mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
               </div>
-              <h3 className="text-xl font-semibold text-foreground">Erfarenheter</h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">Lärare</Badge>
-              <Badge variant="secondary">Speciallärare</Badge>
-              <Badge variant="secondary">Specialpedagog</Badge>
-              <Badge variant="secondary">Bitr. rektor</Badge>
-              <Badge variant="secondary">Föreläsare</Badge>
-              <Badge variant="secondary">Utvecklingsledare</Badge>
-              <Badge variant="secondary">Handledare</Badge>
-            </div>
-          </Card>
-
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Languages className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground">Språk</h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Badge>Svenska</Badge>
-              <Badge>Engelska</Badge>
-              <Badge>Franska</Badge>
-              <Badge>Arabiska</Badge>
-            </div>
-          </Card>
+            );
+          })}
         </div>
 
-        <Card className="p-8 bg-accent/5 border-accent/20">
+        <Card className="p-8 bg-accent/5 border-accent/20 mt-12">
           <h3 className="text-2xl font-semibold text-foreground mb-4">
             Skolingenjör – Vetenskaplig grund för hållbart stöd
           </h3>
@@ -74,6 +150,8 @@ const About = () => {
           </p>
         </Card>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;
