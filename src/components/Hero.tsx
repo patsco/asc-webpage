@@ -1,21 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
 const Hero = () => {
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth"
+    });
   };
-
-  return (
-    <section className="min-h-[85vh] flex items-center justify-center px-4 py-12 bg-gradient-to-br from-background via-secondary/30 to-background">
+  return <section className="min-h-[85vh] flex items-center justify-center px-4 py-12 bg-gradient-to-br from-background via-secondary/30 to-background">
       <div className="max-w-4xl mx-auto text-center space-y-8">
         <div className="inline-block">
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">
-            Skolingenjör
-          </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 leading-tight">
-            Abiir Scott Rossi
-          </h1>
+          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">ABIIR SCOTT ROSSI - UTBILDNINGSINGENJÖR</p>
+          <h1 className="text-4xl text-foreground mb-4 leading-tight md:text-6xl font-semibold">Flexibla lösningar för skolans akuta och långsiktiga utmaningar</h1>
           <div className="h-1 w-24 bg-primary mx-auto"></div>
         </div>
         
@@ -30,25 +25,15 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <Button 
-            size="lg" 
-            onClick={() => scrollToSection("contact")}
-            className="group"
-          >
+          <Button size="lg" onClick={() => scrollToSection("contact")} className="group">
             Kontakta mig
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button 
-            size="lg" 
-            variant="outline"
-            onClick={() => scrollToSection("services")}
-          >
+          <Button size="lg" variant="outline" onClick={() => scrollToSection("services")}>
             Se tjänster
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
