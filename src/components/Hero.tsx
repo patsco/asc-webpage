@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="max-w-4xl mx-auto text-center space-y-8">
         <div className="inline-block">
           <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">ABIIR SCOTT ROSSI - UTBILDNINGSINGENJÖR</p>
-          <h1 className="text-4xl mb-4 leading-tight md:text-6xl font-normal text-orange-800">Flexibla lösningar för skolans akuta och långsiktiga utmaningar</h1>
+          <h1 className="text-4xl mb-4 leading-tight md:text-6xl font-normal text-orange-800">Flexibla och kortsiktiga lösningar för en hållbar oc</h1>
           <div className="h-1 w-24 bg-primary mx-auto"></div>
         </div>
         
