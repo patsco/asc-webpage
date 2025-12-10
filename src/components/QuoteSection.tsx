@@ -32,13 +32,13 @@ const QuoteSection = () => {
             </div>
           </div>
 
-          {/* Image */}
+          {/* Image - rotated 90 degrees to correct orientation */}
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img 
                 src={presentationImage} 
                 alt="Abiir Scott Rossi presenterar" 
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover [transform:rotate(90deg)] origin-center"
               />
             </div>
             <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
