@@ -155,17 +155,15 @@ const Services = () => {
           })}
         </div>
 
-        {/* Turtle section with quote */}
-        <div className="mt-16 flex flex-col md:flex-row items-center gap-8 bg-secondary/30 rounded-2xl p-8">
-          <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
-            <img 
-              src={turtleImage} 
-              alt="Havssköldpadda - andas ut" 
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <div className="flex-1">
-            <p className="font-handwritten text-2xl md:text-3xl text-foreground/80 leading-relaxed italic">
+        {/* Turtle section with quote - fullscreen background with text overlay */}
+        <div className="mt-16 relative rounded-2xl overflow-hidden">
+          <img 
+            src={turtleImage} 
+            alt="Havssköldpadda - andas ut" 
+            className="w-full h-80 md:h-96 object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end justify-center p-8">
+            <p className="font-handwritten text-2xl md:text-3xl text-white leading-relaxed italic text-center max-w-3xl drop-shadow-lg">
               "Dags att ta luft och andas ut lite – tillåt dig själv att delegera en bit ansvar till en annan kompetent människa. 
               Det finns gott om ansvar kvar ändå."
             </p>

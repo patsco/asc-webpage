@@ -3,6 +3,9 @@ import { GraduationCap, Award, Briefcase } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import awardImage from "@/assets/award.jpg";
 import footstepsImage from "@/assets/footsteps.jpg";
+import landscapeBridgeImage from "@/assets/landscape-bridge.jpg";
+import chessImage from "@/assets/chess.jpg";
+import portraitSepiaImage from "@/assets/portrait-sepia.jpg";
 
 const About = () => {
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
@@ -132,37 +135,70 @@ const About = () => {
           })}
         </div>
 
-        {/* Utbildningsingenjör section with footsteps */}
+        {/* Landscape hero image */}
+        <div className="mt-12 rounded-2xl overflow-hidden shadow-xl">
+          <img 
+            src={landscapeBridgeImage} 
+            alt="Landskapsbild - perspektiv" 
+            className="w-full h-64 md:h-96 object-cover"
+          />
+        </div>
+
+        {/* Utbildningsingenjör section */}
         <Card className="p-8 bg-accent/5 border-accent/20 mt-12">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1">
-              <h3 className="text-2xl font-semibold text-foreground mb-4">
-                Utbildningsingenjör
-              </h3>
-              <p className="text-foreground/80 leading-relaxed mb-4">
-                Ett utifrånperspektiv kan ibland vara nyckeln för att lyckas se bortom gamla mönster och invanda strukturer. 
-                Som utbildningsingenjör tillämpar jag forskning, erfarenhet och kompetens för att på ett vetenskapligt och 
-                systematiskt angreppssätt ta mig an de utmaningar och uppdrag jag ställs inför.
-              </p>
-              <p className="text-foreground/80 leading-relaxed mb-4">
-                Skolans värld har inte ett korrekt svar eller en bästa lösning. Då hade vi gjort det för längesen. 
-                Men, vi kan begrunda våra praktiker.
-              </p>
-              <p className="font-handwritten text-xl text-foreground/70 italic">
-                "Varje steg jag tar görs systematiskt och målinriktat. Noggrant avvägt och baserat på min professionella 
-                bedömning av lokal kontext, aktuell forskning och beprövad erfarenhet. Varje steg tas med ett slutmål i sikte: 
-                öka elevers kunskaper för en bättre morgondag."
-              </p>
-            </div>
-            <div className="w-full md:w-80 flex-shrink-0">
-              <img 
-                src={footstepsImage} 
-                alt="Systematiskt arbete - fotspår" 
-                className="w-full h-auto object-contain rounded-lg"
-              />
-            </div>
-          </div>
+          <h3 className="text-2xl font-semibold text-foreground mb-4">
+            Utbildningsingenjör
+          </h3>
+          <p className="text-foreground/80 leading-relaxed mb-4">
+            Ett utifrånperspektiv kan ibland vara nyckeln för att lyckas se bortom gamla mönster och invanda strukturer. 
+            Som utbildningsingenjör tillämpar jag forskning, erfarenhet och kompetens för att på ett vetenskapligt och 
+            systematiskt angreppssätt ta mig an de utmaningar och uppdrag jag ställs inför.
+          </p>
+          <p className="text-foreground/80 leading-relaxed">
+            Skolans värld har inte ett korrekt svar eller en bästa lösning. Då hade vi gjort det för längesen. 
+            Men, vi kan begrunda våra praktiker.
+          </p>
         </Card>
+
+        {/* Systematic work section with chess and footsteps */}
+        <div className="mt-12 grid md:grid-cols-2 gap-8">
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src={chessImage} 
+              alt="Schackbräde - systematiskt arbete" 
+              className="w-full h-64 object-cover"
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <p className="font-handwritten text-xl md:text-2xl text-foreground/80 leading-relaxed italic">
+              "Varje steg jag tar görs systematiskt och målinriktat. Noggrant avvägt och baserat på min professionella 
+              bedömning av lokal kontext, aktuell forskning och beprövad erfarenhet. Varje steg tas med ett slutmål i sikte: 
+              öka elevers kunskaper för en bättre morgondag."
+            </p>
+          </div>
+        </div>
+
+        {/* Footsteps image */}
+        <div className="mt-12 flex justify-center">
+          <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src={footstepsImage} 
+              alt="Fotspår - varje steg räknas" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Portrait with sepia */}
+        <div className="mt-12 flex justify-center">
+          <div className="relative w-64 h-64 md:w-80 md:h-80">
+            <img 
+              src={portraitSepiaImage} 
+              alt="Porträtt" 
+              className="w-full h-full object-cover rounded-full shadow-xl"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
