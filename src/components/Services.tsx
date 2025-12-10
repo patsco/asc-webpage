@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, Users, Lightbulb, UserPlus, FileText } from "lucide-react";
+import turtleImage from "@/assets/turtle.jpg";
+import puzzleServices from "@/assets/puzzle-services.jpg";
 
 interface ServiceCategory {
   id: string;
@@ -78,8 +80,13 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section id="services" className="py-20 px-4 bg-background relative overflow-hidden">
+      {/* Puzzle background decoration */}
+      <div className="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
+        <img src={puzzleServices} alt="" className="w-full h-full object-contain" />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Uppdrag
@@ -146,6 +153,23 @@ const Services = () => {
               </Card>
             );
           })}
+        </div>
+
+        {/* Turtle section with quote */}
+        <div className="mt-16 flex flex-col md:flex-row items-center gap-8 bg-secondary/30 rounded-2xl p-8">
+          <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
+            <img 
+              src={turtleImage} 
+              alt="Havssköldpadda - andas ut" 
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <div className="flex-1">
+            <p className="font-handwritten text-2xl md:text-3xl text-foreground/80 leading-relaxed italic">
+              "Dags att ta luft och andas ut lite – tillåt dig själv att delegera en bit ansvar till en annan kompetent människa. 
+              Det finns gott om ansvar kvar ändå."
+            </p>
+          </div>
         </div>
       </div>
     </section>

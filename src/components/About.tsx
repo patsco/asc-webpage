@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { GraduationCap, Award, Briefcase } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import awardImage from "@/assets/award.jpg";
+import footstepsImage from "@/assets/footsteps.jpg";
 
 const About = () => {
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
@@ -35,49 +37,33 @@ const About = () => {
       icon: GraduationCap,
       title: "Utbildning",
       items: [
-        "Master i pedagogik med specialisering i matematikdidaktik",
-        "Vidareutbildning i dyslexi och dyskalkyli",
-        "Specialpedagogisk examen med fokus på NPF",
-        "Fortbildning i ABA och TEACCH-metoder",
-        "Certifiering i Functional Behavior Assessment",
-        "Vidareutbildning i traumamedveten pedagogik",
-        "Kurs i systematiskt kvalitetsarbete inom skolväsendet",
-        "Fortbildning i formativ bedömning och feedback",
-        "Utbildning i konflikhantering och krisinterventioner",
-        "Forskningsmetodik och evidensbaserad praktik"
+        "Master i pedagogik",
+        "Lärarexamen i kemi- och biologi",
+        "Kognitionsvetenskap och lärande i skolan (fris. kurs)",
+        "Dyskalkyli och matematiksvårigheter (fris. kurs)"
       ]
     },
     {
       icon: Briefcase,
-      title: "Erfarenheter",
+      title: "Erfarenhet",
       items: [
-        "15+ års erfarenhet som lärare i grundskolan",
-        "Speciallärare med fokus på matematiksvårigheter",
-        "Specialpedagog för elever med NPF-diagnoser",
-        "Biträdande rektor med ansvar för pedagogisk utveckling",
-        "Föreläsare på lärarutbildningar och kompetensutvecklingsdagar",
-        "Utvecklingsledare för skolövergripande förbättringsarbete",
-        "Handledare för lärare och pedagogisk personal",
-        "Konsult för skolhuvudmän i organisationsutveckling",
-        "Projektledare för implementering av digitala läromedel",
-        "Mentor för nyanställda lärare och studenter"
+        "Utvecklingsledare",
+        "Föreläsare",
+        "Specialpedagog",
+        "Lärarcoach (Bryssel)",
+        "Speciallärare",
+        "Rektor",
+        "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"
       ]
     },
     {
       icon: Award,
       title: "Utmärkelser",
       items: [
-        "Utmärkelse för innovativt pedagogiskt arbete 2022",
-        "Nominerad till Årets specialpedagog 2021",
-        "Pris för framgångsrikt inkluderingsarbete",
-        "Erkännande för implementering av forskningsbaserade metoder",
-        "Diplom för excellent handledning av pedagogisk personal",
-        "Utmärkelse för framstående insatser inom matematikundervisning",
-        "Hedersomnämnande för arbete med utsatta elevgrupper",
-        "Kommunalt pris för skolutveckling och kvalitetsarbete",
-        "Erkännande för mångkulturell pedagogisk kompetens",
-        "Certifiering som Qualified Educational Consultant"
-      ]
+        '"Årets förebild" i Marks kommun, 2024',
+        '"Excellent Award – Teacher of the Year" i Bryssel, 2018'
+      ],
+      hasImage: true
     }
   ];
 
@@ -116,10 +102,18 @@ const About = () => {
                     </h3>
                   </div>
                   
-                  {/* Placeholder for future image */}
-                  <div className="mb-6 h-48 rounded-lg bg-muted/30 flex items-center justify-center text-muted-foreground/50 text-sm">
-                    Bildyta för {section.title}
-                  </div>
+                  {/* Award image for Utmärkelser section */}
+                  {section.hasImage && (
+                    <div className="mb-6 flex justify-center">
+                      <div className="rounded-lg overflow-hidden shadow-md max-w-md">
+                        <img 
+                          src={awardImage} 
+                          alt="Utmärkelse - Årets förebild" 
+                          className="w-full h-auto object-cover"
+                        />
+                      </div>
+                    </div>
+                  )}
 
                   <ul className="grid md:grid-cols-2 gap-3">
                     {section.items.map((item, itemIndex) => (
@@ -138,16 +132,36 @@ const About = () => {
           })}
         </div>
 
+        {/* Utbildningsingenjör section with footsteps */}
         <Card className="p-8 bg-accent/5 border-accent/20 mt-12">
-          <h3 className="text-2xl font-semibold text-foreground mb-4">
-            Skolingenjör – Vetenskaplig grund för hållbart stöd
-          </h3>
-          <p className="text-foreground/80 leading-relaxed">
-            Som skolingenjör kombinerar jag systematiska arbetssätt med vetenskapliga metoder 
-            för att ge skolor det stöd de behöver. Genom flexibla uppdrag och kortare insatser 
-            kan jag hjälpa er att hantera akuta utmaningar samtidigt som vi bygger grund för 
-            långsiktiga, hållbara lösningar i er organisation.
-          </p>
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex-1">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">
+                Utbildningsingenjör
+              </h3>
+              <p className="text-foreground/80 leading-relaxed mb-4">
+                Ett utifrånperspektiv kan ibland vara nyckeln för att lyckas se bortom gamla mönster och invanda strukturer. 
+                Som utbildningsingenjör tillämpar jag forskning, erfarenhet och kompetens för att på ett vetenskapligt och 
+                systematiskt angreppssätt ta mig an de utmaningar och uppdrag jag ställs inför.
+              </p>
+              <p className="text-foreground/80 leading-relaxed mb-4">
+                Skolans värld har inte ett korrekt svar eller en bästa lösning. Då hade vi gjort det för längesen. 
+                Men, vi kan begrunda våra praktiker.
+              </p>
+              <p className="font-handwritten text-xl text-foreground/70 italic">
+                "Varje steg jag tar görs systematiskt och målinriktat. Noggrant avvägt och baserat på min professionella 
+                bedömning av lokal kontext, aktuell forskning och beprövad erfarenhet. Varje steg tas med ett slutmål i sikte: 
+                öka elevers kunskaper för en bättre morgondag."
+              </p>
+            </div>
+            <div className="w-full md:w-80 flex-shrink-0">
+              <img 
+                src={footstepsImage} 
+                alt="Systematiskt arbete - fotspår" 
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
+          </div>
         </Card>
       </div>
     </section>
