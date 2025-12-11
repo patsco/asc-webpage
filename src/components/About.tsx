@@ -6,95 +6,53 @@ import footstepsImage from "@/assets/footsteps.jpg";
 import landscapeBridgeImage from "@/assets/landscape-bridge.jpg";
 import chessImage from "@/assets/chess.jpg";
 import portraitSepiaImage from "@/assets/portrait-sepia.jpg";
-
 const About = () => {
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-
   useEffect(() => {
     const observers = sectionRefs.current.map((ref, index) => {
       if (!ref) return null;
-      
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleSections((prev) => new Set(prev).add(index));
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-      
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setVisibleSections(prev => new Set(prev).add(index));
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
       observer.observe(ref);
       return observer;
     });
-
     return () => {
-      observers.forEach((observer) => observer?.disconnect());
+      observers.forEach(observer => observer?.disconnect());
     };
   }, []);
-
-  const sections = [
-    {
-      icon: GraduationCap,
-      title: "Utbildning",
-      items: [
-        "Master i pedagogik",
-        "Lärarexamen i kemi- och biologi",
-        "Kognitionsvetenskap och lärande i skolan (fris. kurs)",
-        "Dyskalkyli och matematiksvårigheter (fris. kurs)"
-      ]
-    },
-    {
-      icon: Briefcase,
-      title: "Erfarenhet",
-      items: [
-        "Utvecklingsledare",
-        "Föreläsare",
-        "Specialpedagog",
-        "Lärarcoach (Bryssel)",
-        "Speciallärare",
-        "Rektor",
-        "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"
-      ]
-    },
-    {
-      icon: Award,
-      title: "Utmärkelser",
-      items: [
-        '"Årets förebild" i Marks kommun, 2024',
-        '"Excellent Award – Teacher of the Year" i Bryssel, 2018'
-      ],
-      hasImage: true
-    }
-  ];
-
-  return (
-    <section id="about" className="py-20 px-4 bg-secondary/20">
+  const sections = [{
+    icon: GraduationCap,
+    title: "Utbildning",
+    items: ["Master i pedagogik", "Lärarexamen i kemi- och biologi", "Kognitionsvetenskap och lärande i skolan (fris. kurs)", "Dyskalkyli och matematiksvårigheter (fris. kurs)"]
+  }, {
+    icon: Briefcase,
+    title: "Erfarenhet",
+    items: ["Utvecklingsledare", "Föreläsare", "Specialpedagog", "Lärarcoach (Bryssel)", "Speciallärare", "Rektor", "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"]
+  }, {
+    icon: Award,
+    title: "Utmärkelser",
+    items: ['"Årets förebild" i Marks kommun, 2024', '"Excellent Award – Teacher of the Year" i Bryssel, 2018'],
+    hasImage: true
+  }];
+  return <section id="about" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Vem är jag?
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Utbildningsingenjör med systematik och vetenskapliga arbetssätt stöttar jag dagens skola.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Akademisk- och yrkesbakgrund</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Text...</p>
         </div>
 
         <div className="space-y-12">
           {sections.map((section, index) => {
-            const Icon = section.icon;
-            return (
-              <div
-                key={index}
-                ref={(el) => (sectionRefs.current[index] = el)}
-                className={`transition-all duration-700 ${
-                  visibleSections.has(index)
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                }`}
-              >
+          const Icon = section.icon;
+          return <div key={index} ref={el => sectionRefs.current[index] = el} className={`transition-all duration-700 ${visibleSections.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
                 <Card className="p-8 hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -106,42 +64,26 @@ const About = () => {
                   </div>
                   
                   {/* Award image for Utmärkelser section */}
-                  {section.hasImage && (
-                    <div className="mb-6 flex justify-center">
+                  {section.hasImage && <div className="mb-6 flex justify-center">
                       <div className="rounded-lg overflow-hidden shadow-md max-w-md">
-                        <img 
-                          src={awardImage} 
-                          alt="Utmärkelse - Årets förebild" 
-                          className="w-full h-auto object-cover"
-                        />
+                        <img src={awardImage} alt="Utmärkelse - Årets förebild" className="w-full h-auto object-cover" />
                       </div>
-                    </div>
-                  )}
+                    </div>}
 
                   <ul className="grid md:grid-cols-2 gap-3">
-                    {section.items.map((item, itemIndex) => (
-                      <li
-                        key={itemIndex}
-                        className="flex items-start gap-2 text-foreground/80"
-                      >
+                    {section.items.map((item, itemIndex) => <li key={itemIndex} className="flex items-start gap-2 text-foreground/80">
                         <span className="text-primary mt-1">•</span>
                         <span>{item}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </Card>
-              </div>
-            );
-          })}
+              </div>;
+        })}
         </div>
 
         {/* Landscape hero image */}
         <div className="mt-12 rounded-2xl overflow-hidden shadow-xl">
-          <img 
-            src={landscapeBridgeImage} 
-            alt="Landskapsbild - perspektiv" 
-            className="w-full h-64 md:h-96 object-cover"
-          />
+          <img src={landscapeBridgeImage} alt="Landskapsbild - perspektiv" className="w-full h-64 md:h-96 object-cover" />
         </div>
 
         {/* Utbildningsingenjör section */}
@@ -163,11 +105,7 @@ const About = () => {
         {/* Systematic work section with chess and footsteps */}
         <div className="mt-12 grid md:grid-cols-2 gap-8">
           <div className="rounded-2xl overflow-hidden shadow-lg">
-            <img 
-              src={chessImage} 
-              alt="Schackbräde - systematiskt arbete" 
-              className="w-full h-64 object-cover"
-            />
+            <img src={chessImage} alt="Schackbräde - systematiskt arbete" className="w-full h-64 object-cover" />
           </div>
           <div className="flex flex-col justify-center">
             <p className="font-handwritten text-xl md:text-2xl text-foreground/80 leading-relaxed italic">
@@ -181,27 +119,17 @@ const About = () => {
         {/* Footsteps image */}
         <div className="mt-12 flex justify-center">
           <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-lg">
-            <img 
-              src={footstepsImage} 
-              alt="Fotspår - varje steg räknas" 
-              className="w-full h-auto object-cover"
-            />
+            <img src={footstepsImage} alt="Fotspår - varje steg räknas" className="w-full h-auto object-cover" />
           </div>
         </div>
 
         {/* Portrait with sepia */}
         <div className="mt-12 flex justify-center">
           <div className="relative w-64 h-64 md:w-80 md:h-80">
-            <img 
-              src={portraitSepiaImage} 
-              alt="Porträtt" 
-              className="w-full h-full object-cover rounded-full shadow-xl"
-            />
+            <img src={portraitSepiaImage} alt="Porträtt" className="w-full h-full object-cover rounded-full shadow-xl" />
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;

@@ -2,23 +2,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import snailImage from "@/assets/snail.jpg";
 import puzzleHeader from "@/assets/puzzle-header.jpg";
-
 const Hero = () => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth"
     });
   };
-
-  return (
-    <section className="min-h-[85vh] flex flex-col bg-gradient-to-br from-background via-secondary/30 to-background">
+  return <section className="min-h-[85vh] flex flex-col bg-gradient-to-br from-background via-secondary/30 to-background">
       {/* Puzzle header image */}
       <div className="w-full h-32 md:h-48 overflow-hidden">
-        <img 
-          src={puzzleHeader} 
-          alt="Pusselbit - flexibla lösningar" 
-          className="w-full h-full object-cover"
-        />
+        <img src={puzzleHeader} alt="Pusselbit - flexibla lösningar" className="w-full h-full object-cover" />
       </div>
 
       <div className="flex-1 flex items-center justify-center px-4 py-12">
@@ -58,23 +51,13 @@ const Hero = () => {
       <div className="px-4 pb-16">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
           <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
-            <img 
-              src={snailImage} 
-              alt="Snigel - att skynda långsamt" 
-              className="w-full h-full object-contain"
-            />
+            <img src={snailImage} alt="Snigel - att skynda långsamt" className="w-full h-full object-contain" />
           </div>
           <div className="flex-1">
-            <p className="font-handwritten text-2xl md:text-3xl text-foreground/80 leading-relaxed italic">
-              "Att skynda långsamt blir ofta en för stor utmaning inom ramen för budget- och läsår i skolans värld. 
-              Att beställa specifika uppdrag kan köpa er den dyrbara tid som krävs för att kunna skynda långsamt. 
-              Därmed för att nå till det hållbara och långsiktiga arbetet."
-            </p>
+            <p className="font-handwritten text-2xl text-foreground/80 leading-relaxed italic md:text-2xl">Att skynda långsamt blir ofta en för stor utmaning inom ramen för budget- och läsår i skolans värld. Att beställa specifika uppdrag kan köpa er den dyrbara tid som krävs för att kunna skynda långsamt. Därmed för att nå till det hållbara och långsiktiga arbetet.</p>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
