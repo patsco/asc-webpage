@@ -2,7 +2,6 @@ import { Card } from "@/components/ui/card";
 import { GraduationCap, Award, Briefcase } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import awardImage from "@/assets/award.jpg";
-import footstepsImage from "@/assets/footsteps.jpg";
 import landscapeBridgeImage from "@/assets/landscape-bridge.jpg";
 import chessImage from "@/assets/chess.jpg";
 import portraitSepiaImage from "@/assets/portrait-sepia.jpg";
@@ -38,7 +37,7 @@ const About = () => {
     items: ["Utvecklingsledare", "Föreläsare", "Specialpedagog", "Lärarcoach (Bryssel)", "Speciallärare", "Rektor", "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"]
   }, {
     icon: Award,
-    title: "Utmärkelser",
+    title: "",
     items: ['"Årets förebild" i Marks kommun, 2024', '"Excellent Award – Teacher of the Year" i Bryssel, 2018'],
     hasImage: true
   }];
@@ -54,18 +53,20 @@ const About = () => {
           const Icon = section.icon;
           return <div key={index} ref={el => sectionRefs.current[index] = el} className={`transition-all duration-700 ${visibleSections.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
                 <Card className="p-8 hover:shadow-lg transition-shadow">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-primary" />
+                  {section.title && (
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-semibold text-foreground">
+                        {section.title}
+                      </h3>
                     </div>
-                    <h3 className="text-2xl font-semibold text-foreground">
-                      {section.title}
-                    </h3>
-                  </div>
+                  )}
                   
                   {/* Award image for Utmärkelser section */}
                   {section.hasImage && <div className="mb-6 flex justify-center">
-                      <div className="rounded-lg overflow-hidden shadow-md max-w-md">
+                      <div className="rounded-lg overflow-hidden shadow-md max-w-[200px]">
                         <img src={awardImage} alt="Utmärkelse - Årets förebild" className="w-full h-auto object-cover" />
                       </div>
                     </div>}
@@ -81,26 +82,23 @@ const About = () => {
         })}
         </div>
 
-        {/* Landscape hero image */}
-        <div className="mt-12 rounded-2xl overflow-hidden shadow-xl">
-          <img src={landscapeBridgeImage} alt="Landskapsbild - perspektiv" className="w-full h-64 md:h-96 object-cover" />
+        {/* Landscape image with text side by side */}
+        <div className="mt-12 grid md:grid-cols-2 gap-8 items-center">
+          <div className="rounded-2xl overflow-hidden shadow-xl">
+            <img src={landscapeBridgeImage} alt="Landskapsbild - perspektiv" className="w-full h-auto object-cover" />
+          </div>
+          <div className="space-y-4">
+            <p className="text-foreground/80 leading-relaxed">
+              Ett utifrånperspektiv kan ibland vara nyckeln för att lyckas se bortom gamla mönster och invanda strukturer. 
+              Som utbildningsingenjör tillämpar jag forskning, erfarenhet och kompetens för att på ett vetenskapligt och 
+              systematiskt angreppssätt ta mig an de utmaningar och uppdrag jag ställs inför.
+            </p>
+            <p className="text-foreground/80 leading-relaxed">
+              Skolans värld har inte ett korrekt svar eller en bästa lösning. Då hade vi gjort det för längesen. 
+              Men, vi kan begrunda våra praktiker.
+            </p>
+          </div>
         </div>
-
-        {/* Utbildningsingenjör section */}
-        <Card className="p-8 bg-accent/5 border-accent/20 mt-12">
-          <h3 className="text-2xl font-semibold text-foreground mb-4">
-            Utbildningsingenjör
-          </h3>
-          <p className="text-foreground/80 leading-relaxed mb-4">
-            Ett utifrånperspektiv kan ibland vara nyckeln för att lyckas se bortom gamla mönster och invanda strukturer. 
-            Som utbildningsingenjör tillämpar jag forskning, erfarenhet och kompetens för att på ett vetenskapligt och 
-            systematiskt angreppssätt ta mig an de utmaningar och uppdrag jag ställs inför.
-          </p>
-          <p className="text-foreground/80 leading-relaxed">
-            Skolans värld har inte ett korrekt svar eller en bästa lösning. Då hade vi gjort det för längesen. 
-            Men, vi kan begrunda våra praktiker.
-          </p>
-        </Card>
 
         {/* Systematic work section with chess and footsteps */}
         <div className="mt-12 grid md:grid-cols-2 gap-8">
@@ -116,12 +114,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Footsteps image */}
-        <div className="mt-12 flex justify-center">
-          <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-lg">
-            <img src={footstepsImage} alt="Fotspår - varje steg räknas" className="w-full h-auto object-cover" />
-          </div>
-        </div>
 
         {/* Portrait with sepia */}
         <div className="mt-12 flex justify-center">
