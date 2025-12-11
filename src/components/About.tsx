@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import awardImage from "@/assets/award.jpg";
 import landscapeBridgeImage from "@/assets/landscape-bridge.jpg";
 import chessImage from "@/assets/chess.jpg";
-import portraitSepiaImage from "@/assets/portrait-sepia.jpg";
+
 const About = () => {
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -35,11 +35,6 @@ const About = () => {
     icon: Briefcase,
     title: "Erfarenhet",
     items: ["Utvecklingsledare", "Föreläsare", "Specialpedagog", "Lärarcoach (Bryssel)", "Speciallärare", "Rektor", "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"]
-  }, {
-    icon: Award,
-    title: "",
-    items: ['"Årets förebild" i Marks kommun, 2024', '"Excellent Award – Teacher of the Year" i Bryssel, 2018'],
-    hasImage: true
   }];
   return <section id="about" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
@@ -62,12 +57,6 @@ const About = () => {
                       </h3>
                     </div>}
                   
-                  {/* Award image for Utmärkelser section */}
-                  {section.hasImage && <div className="mb-6 flex justify-center">
-                      <div className="rounded-lg overflow-hidden shadow-md max-w-[200px]">
-                        <img src={awardImage} alt="Utmärkelse - Årets förebild" className="w-full h-auto object-cover" />
-                      </div>
-                    </div>}
 
                   <ul className="grid md:grid-cols-2 gap-3">
                     {section.items.map((item, itemIndex) => <li key={itemIndex} className="flex items-start gap-2 text-foreground/80">
@@ -78,6 +67,37 @@ const About = () => {
                 </Card>
               </div>;
         })}
+        </div>
+
+        {/* Awards section - improved design */}
+        <div className="mt-12">
+          <Card className="p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="flex justify-center">
+                <div className="rounded-lg overflow-hidden shadow-lg max-w-[180px] transform hover:scale-105 transition-transform duration-300">
+                  <img src={awardImage} alt="Utmärkelse - Årets förebild" className="w-full h-auto object-cover" />
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Award className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-sm font-medium text-primary uppercase tracking-wider">Utmärkelser</span>
+                </div>
+                <div className="space-y-3">
+                  <div className="p-4 bg-background/80 rounded-lg border border-border/50">
+                    <p className="font-semibold text-foreground">"Årets förebild"</p>
+                    <p className="text-sm text-muted-foreground">Marks kommun, 2024</p>
+                  </div>
+                  <div className="p-4 bg-background/80 rounded-lg border border-border/50">
+                    <p className="font-semibold text-foreground">"Excellent Award – Teacher of the Year"</p>
+                    <p className="text-sm text-muted-foreground">Bryssel, 2018</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
 
         {/* Landscape image with text side by side */}
@@ -98,23 +118,16 @@ const About = () => {
           </div>
         </div>
 
-        {/* Systematic work section with chess and footsteps */}
+        {/* Systematic work section with chess on right */}
         <div className="mt-12 grid md:grid-cols-2 gap-8">
-          <div className="rounded-2xl overflow-hidden shadow-lg">
-            <img src={chessImage} alt="Schackbräde - systematiskt arbete" className="w-full h-64 object-contain" />
-          </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center order-2 md:order-1">
             <p className="font-handwritten text-xl md:text-2xl text-foreground/80 leading-relaxed italic">Varje steg jag tar görs systematiskt och målinriktat. Noggrant avvägt och baserat på min professionella bedömning av lokal kontext, aktuell forskning och beprövad erfarenhet. Varje steg tas med ett slutmål i sikte: öka elevers kunskaper för en bättre morgondag.</p>
           </div>
-        </div>
-
-
-        {/* Portrait with sepia */}
-        <div className="mt-12 flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80">
-            <img src={portraitSepiaImage} alt="Porträtt" className="w-full h-full object-cover rounded-full shadow-xl" />
+          <div className="rounded-2xl overflow-hidden shadow-lg order-1 md:order-2">
+            <img src={chessImage} alt="Schackbräde - systematiskt arbete" className="w-full h-64 object-contain" />
           </div>
         </div>
+
       </div>
     </section>;
 };
