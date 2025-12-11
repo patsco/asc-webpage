@@ -53,16 +53,14 @@ const About = () => {
           const Icon = section.icon;
           return <div key={index} ref={el => sectionRefs.current[index] = el} className={`transition-all duration-700 ${visibleSections.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
                 <Card className="p-8 hover:shadow-lg transition-shadow">
-                  {section.title && (
-                    <div className="flex items-center gap-3 mb-6">
+                  {section.title && <div className="flex items-center gap-3 mb-6">
                       <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <h3 className="text-2xl font-semibold text-foreground">
                         {section.title}
                       </h3>
-                    </div>
-                  )}
+                    </div>}
                   
                   {/* Award image for Utmärkelser section */}
                   {section.hasImage && <div className="mb-6 flex justify-center">
@@ -103,14 +101,10 @@ const About = () => {
         {/* Systematic work section with chess and footsteps */}
         <div className="mt-12 grid md:grid-cols-2 gap-8">
           <div className="rounded-2xl overflow-hidden shadow-lg">
-            <img src={chessImage} alt="Schackbräde - systematiskt arbete" className="w-full h-64 object-cover" />
+            <img src={chessImage} alt="Schackbräde - systematiskt arbete" className="w-full h-64 object-contain" />
           </div>
           <div className="flex flex-col justify-center">
-            <p className="font-handwritten text-xl md:text-2xl text-foreground/80 leading-relaxed italic">
-              "Varje steg jag tar görs systematiskt och målinriktat. Noggrant avvägt och baserat på min professionella 
-              bedömning av lokal kontext, aktuell forskning och beprövad erfarenhet. Varje steg tas med ett slutmål i sikte: 
-              öka elevers kunskaper för en bättre morgondag."
-            </p>
+            <p className="font-handwritten text-xl md:text-2xl text-foreground/80 leading-relaxed italic">Varje steg jag tar görs systematiskt och målinriktat. Noggrant avvägt och baserat på min professionella bedömning av lokal kontext, aktuell forskning och beprövad erfarenhet. Varje steg tas med ett slutmål i sikte: öka elevers kunskaper för en bättre morgondag.</p>
           </div>
         </div>
 

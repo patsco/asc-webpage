@@ -6,51 +6,42 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     position: "",
     school: "",
     message: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Create mailto link
     const subject = encodeURIComponent(`Kontakt från ${formData.name} - ${formData.school}`);
-    const body = encodeURIComponent(
-      `Namn: ${formData.name}\nBefattning: ${formData.position}\nSkola: ${formData.school}\n\nMeddelande:\n${formData.message}`
-    );
+    const body = encodeURIComponent(`Namn: ${formData.name}\nBefattning: ${formData.position}\nSkola: ${formData.school}\n\nMeddelande:\n${formData.message}`);
     const mailtoLink = `mailto:abiir@scottrossi.org?subject=${subject}&body=${body}`;
-    
     window.location.href = mailtoLink;
-    
     toast({
       title: "Öppnar din e-postklient",
-      description: "Tack för ditt intresse! Din e-postklient öppnas nu.",
+      description: "Tack för ditt intresse! Din e-postklient öppnas nu."
     });
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <section id="contact" className="py-20 px-4 bg-secondary/20">
+  return <section id="contact" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Kontakt
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Jag önskar kontakt för att diskutera ert unika behov. Välkommen att höra av er!
-          </p>
+          <p className="text-lg text-muted-foreground">Välkommen att höra av dig för att diskutera ert unika behov!</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -58,51 +49,22 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Namn</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Ditt namn"
-                />
+                <Input id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Ditt namn" />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="position">Befattning</Label>
-                <Input
-                  id="position"
-                  name="position"
-                  value={formData.position}
-                  onChange={handleChange}
-                  required
-                  placeholder="T.ex. Rektor"
-                />
+                <Input id="position" name="position" value={formData.position} onChange={handleChange} required placeholder="T.ex. Rektor" />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="school">Skola</Label>
-                <Input
-                  id="school"
-                  name="school"
-                  value={formData.school}
-                  onChange={handleChange}
-                  required
-                  placeholder="Skolans namn"
-                />
+                <Input id="school" name="school" value={formData.school} onChange={handleChange} required placeholder="Skolans namn" />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="message">Meddelande</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  placeholder="Jag önskar kontakt för ett uppstartsmöte."
-                />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={4} placeholder="Jag önskar kontakt för ett uppstartsmöte." />
               </div>
 
               <Button type="submit" className="w-full group">
@@ -120,10 +82,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">E-post</h3>
-                  <a 
-                    href="mailto:abiir@scottrossi.org" 
-                    className="text-primary hover:underline"
-                  >
+                  <a href="mailto:abiir@scottrossi.org" className="text-primary hover:underline">
                     abiir@scottrossi.org
                   </a>
                 </div>
@@ -148,8 +107,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
