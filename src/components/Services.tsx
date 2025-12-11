@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, Users, Lightbulb, UserPlus, FileText } from "lucide-react";
 import turtleImage from "@/assets/turtle.jpg";
-import puzzleServices from "@/assets/puzzle-services.jpg";
+
 interface ServiceCategory {
   id: string;
   title: string;
@@ -50,10 +50,6 @@ const Services = () => {
     });
   };
   return <section id="services" className="py-20 px-4 bg-background relative overflow-hidden">
-      {/* Puzzle background decoration */}
-      <div className="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
-        <img src={puzzleServices} alt="" className="w-full h-full object-contain" />
-      </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12">
