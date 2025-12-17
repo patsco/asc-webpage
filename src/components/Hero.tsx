@@ -50,7 +50,7 @@ const Hero = () => {
       {/* Snail section with handwritten quote */}
       <div className="px-4 pb-16">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-          <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
+          <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0">
             <img src={snailImage} alt="Snigel - att skynda långsamt" className="w-full h-full object-contain" />
           </div>
           <div className="flex-1">

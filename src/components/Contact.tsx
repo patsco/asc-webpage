@@ -6,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import portraitSepiaImage from "@/assets/portrait-sepia.jpg";
 
 const Contact = () => {
   const {
@@ -109,18 +108,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Portrait image */}
-        <div className="mt-16 flex justify-center">
-          <div className="relative">
-            <div className="w-48 h-48 md:w-56 md:h-56 rounded-lg overflow-hidden shadow-xl">
-              <img 
-                src={portraitSepiaImage} 
-                alt="Porträtt" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </section>;
 };
