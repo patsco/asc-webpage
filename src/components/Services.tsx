@@ -3,7 +3,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, Users, Lightbulb, UserPlus, FileText } from "lucide-react";
 import turtleImage from "@/assets/turtle.jpg";
-
 interface ServiceCategory {
   id: string;
   title: string;
@@ -54,9 +53,7 @@ const Services = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Tjänster</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tydliga exempel på tjänster med möjlighet att utforska detaljer
-          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Fyra huvudkategorier av typer på tjänster, alltid med en självklar utgångspunkt i lokal kontext, skräddarsytt utifrån just era behov. </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
