@@ -16,26 +16,38 @@ const Services = () => {
     id: "handledning",
     title: "Handledning",
     icon: <Users className="h-6 w-6" />,
-    description: "Professionellt stöd för pedagoger och ledningsgrupper",
-    details: ["Lärare", "Speciallärare", "Specialpedagoger", "Särskild undervisningsgrupp"]
+    description: "Professionell handledning enskilt eller i grupp",
+    details: [
+      "Lärare: enskilt eller i grupp, såsom ämnes- eller arbetslag",
+      "Speciallärare, specialpedagog",
+      "Personal i särskild undervisningsgrupp eller dylikt, såsom elevassistent, socialpedagog"
+    ]
   }, {
     id: "radgivning",
     title: "Rådgivning",
     icon: <Lightbulb className="h-6 w-6" />,
-    description: "Strategiskt stöd för skolorganisationen",
-    details: ["Konsulterande insatser", "Organisatoriskt stöd", "Ledningsstöd", "Bollplank för EHT"]
+    description: "Ledningsstöd och sakkunnigt bollplank",
+    details: ["Rektor", "Ledningsgrupp", "Elevhälsoteam"]
   }, {
     id: "bemanning",
     title: "Bemanning",
     icon: <UserPlus className="h-6 w-6" />,
     description: "Flexibla vikariatslösningar för komplexa situationer",
-    details: ["Vikariat (max 4 veckor)", "Åtgärder för resurskrävande ärenden", "Stöd vid kluriga situationer", "Exempel: Klasser med utåtagerande elever, gängproblematik, NPF"]
+    details: [
+      "Särskilt stöd enskilt eller i grupp, på plats eller arbete med elever som problematisk skolfrånvaro",
+      "Ämneslärare i matematik, svenska, engelska, kemi eller biologi"
+    ]
   }, {
     id: "dokumentation",
     title: "Dokumentation",
     icon: <FileText className="h-6 w-6" />,
-    description: "Effektiv dokumentation och uppföljning",
-    details: ["Pedagogiska kartläggningar", "Matematik-screening", "Åtgärdsprogram", "Skapa mallar"]
+    description: "Städa upp, kartlägga eller utföra olika typer av dokumentation",
+    details: [
+      "Specialpedagogisk dokumentation: åtgärdsprogram, anpassade studiegångar, placering i särskild undervisningsgrupp, extra anpassningar med mer",
+      "Pedagogiska kartläggningar",
+      "Matematikscreening: gruppnivå",
+      "Djupgående matematikkartläggning med specifika matematisksvårigheter som frågeställning"
+    ]
   }];
   const toggleService = (serviceId: string) => {
     setExpandedServices(prev => {
