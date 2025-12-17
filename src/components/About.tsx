@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import awardImage from "@/assets/award.jpg";
 import landscapeBridgeImage from "@/assets/landscape-bridge.jpg";
 import chessImage from "@/assets/chess.jpg";
-
 const About = () => {
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set());
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -40,7 +39,7 @@ const About = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Akademisk- och yrkesbakgrund</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Text...</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Kortfattad sammanfattning av den utbildning och arbetslivserfarenhet jag hittills besitter, där dokumentation finns för att styrka samtliga </p>
         </div>
 
         <div className="space-y-12">
