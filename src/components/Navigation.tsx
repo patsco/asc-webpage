@@ -21,11 +21,11 @@ const Navigation = () => {
     id: "home",
     label: "Hem"
   }, {
-    id: "about",
-    label: "Om mig"
-  }, {
     id: "services",
-    label: "Uppdrag"
+    label: "Tjänster"
+  }, {
+    id: "om-mig",
+    label: "Om mig"
   }, {
     id: "contact",
     label: "Kontakt"
