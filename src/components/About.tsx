@@ -33,7 +33,7 @@ const About = () => {
   }, {
     icon: Briefcase,
     title: "Erfarenhet",
-    items: ["Utvecklingsledare", "Föreläsare", "Specialpedagog", "Lärarcoach (Bryssel)", "Speciallärare", "Rektor", "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"]
+    items: ["Utvecklingsledare", "Föreläsare", "Specialpedagog", "Handledare", "Speciallärare", "Rektor", "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"]
   }];
   return <section id="about" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
