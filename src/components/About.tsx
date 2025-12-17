@@ -29,11 +29,11 @@ const About = () => {
   const sections = [{
     icon: GraduationCap,
     title: "Utbildning",
-    items: ["Master i pedagogik", "Lärarexamen i kemi- och biologi", "Kognitionsvetenskap och lärande i skolan (fris. kurs)", "Dyskalkyli och matematiksvårigheter (fris. kurs)"]
+    items: ["Master i pedagogik", "Lärarexamen i kemi- och biologi", "Kognitionsvetenskap och lärande i skolan", "Dyskalkyli och matematiksvårigheter", "Handledning, lärande och ledarskap inom skola och arbetsliv", "Vetenskapliga metoder och teorier inom pedagogik och didaktik II", "Aktionsforskning och skolutveckling", "Microsoft Ignite Conference, Chicago 2015"]
   }, {
     icon: Briefcase,
     title: "Erfarenhet",
-    items: ["Utvecklingsledare", "Föreläsare", "Specialpedagog", "Handledare", "Speciallärare", "Rektor", "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"]
+    items: ["Lärare", "Utvecklingsledare", "Föreläsare", "Specialpedagog", "Handledare", "Speciallärare", "Rektor", "Internationella lärarerfarenheter (Sydafrika, Mexiko, Kanada, Egypten, Frankrike och Belgien)"]
   }];
   return <section id="about" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
