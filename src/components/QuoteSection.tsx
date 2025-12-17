@@ -1,7 +1,7 @@
 import presentationImage from "@/assets/presentation.jpg";
 import robinWilliamsImage from "@/assets/robin-williams.jpg";
 const QuoteSection = () => {
-  return <section className="py-20 px-4 bg-secondary/20">
+  return <section id="om-mig" className="py-20 px-4 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text content */}
