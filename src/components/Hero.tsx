@@ -54,7 +54,7 @@ const Hero = () => {
             <img src={snailImage} alt="Snigel - att skynda långsamt" className="w-full h-full object-contain" />
           </div>
           <div className="flex-1">
-            <p className="font-handwritten text-2xl text-foreground/80 leading-relaxed italic md:text-2xl">Att skynda långsamt blir ofta en för stor utmaning inom ramen för budget- och läsår i skolans värld. Att beställa specifika uppdrag kan köpa er den dyrbara tid som krävs för att kunna skynda långsamt. Därmed för att nå till det hållbara och långsiktiga arbetet.</p>
+            <p className="font-handwritten text-2xl text-foreground/80 leading-relaxed italic md:text-2xl">Att skynda långsamt blir ofta en för stor utmaning inom ramen för budget och läsårstider i skolans värld. Att beställa specifika uppdrag kan köpa er den dyrbara tid som krävs för att kunna skynda långsamt. Därmed nå till det långsiktiga arbetet och den hållbara skolan.</p>
           </div>
         </div>
       </div>
