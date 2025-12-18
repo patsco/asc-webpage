@@ -17,11 +17,7 @@ const Services = () => {
     title: "Handledning",
     icon: <Users className="h-6 w-6" />,
     description: "Professionell handledning enskilt eller i grupp",
-    details: [
-      "Lärare: enskilt eller i grupp, såsom ämnes- eller arbetslag",
-      "Speciallärare, specialpedagog",
-      "Personal i särskild undervisningsgrupp eller dylikt, såsom elevassistent, socialpedagog"
-    ]
+    details: ["Lärare: enskilt eller i grupp, såsom ämnes- eller arbetslag", "Speciallärare, specialpedagog", "Personal i särskild undervisningsgrupp eller dylikt, såsom elevassistent, socialpedagog"]
   }, {
     id: "radgivning",
     title: "Rådgivning",
@@ -33,21 +29,13 @@ const Services = () => {
     title: "Bemanning",
     icon: <UserPlus className="h-6 w-6" />,
     description: "Flexibla vikariatslösningar för komplexa situationer",
-    details: [
-      "Särskilt stöd enskilt eller i grupp, på plats eller arbete med elever som problematisk skolfrånvaro",
-      "Ämneslärare i matematik, svenska, engelska, kemi eller biologi"
-    ]
+    details: ["Särskilt stöd enskilt eller i grupp, på plats eller arbete med elever som problematisk skolfrånvaro", "Ämneslärare i matematik, svenska, engelska, kemi eller biologi"]
   }, {
     id: "dokumentation",
     title: "Dokumentation",
     icon: <FileText className="h-6 w-6" />,
     description: "Städa upp, kartlägga eller utföra olika typer av dokumentation",
-    details: [
-      "Specialpedagogisk dokumentation: åtgärdsprogram, anpassade studiegångar, placering i särskild undervisningsgrupp, extra anpassningar med mer",
-      "Pedagogiska kartläggningar",
-      "Matematikscreening: gruppnivå",
-      "Djupgående matematikkartläggning med specifika matematisksvårigheter som frågeställning"
-    ]
+    details: ["Specialpedagogisk dokumentation: åtgärdsprogram, anpassade studiegångar, placering i särskild undervisningsgrupp, extra anpassningar med mer", "Pedagogiska kartläggningar", "Matematikscreening: gruppnivå", "Djupgående matematikkartläggning med specifika matematisksvårigheter som frågeställning"]
   }];
   const toggleService = (serviceId: string) => {
     setExpandedServices(prev => {
@@ -65,7 +53,7 @@ const Services = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Tjänster</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Fyra huvudkategorier av typer på tjänster, alltid med en självklar utgångspunkt i lokal kontext, skräddarsytt utifrån just era behov. </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Fyra huvudkategorier av tjänster, alltid med en självklar utgångspunkt i lokal kontext, skräddarsytt utifrån just era behov. </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
