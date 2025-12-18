@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -85,6 +85,20 @@ const Contact = () => {
                   <h3 className="font-semibold text-foreground mb-2">E-post</h3>
                   <a href="mailto:abiir@scottrossi.org" className="text-primary hover:underline">
                     abiir@scottrossi.org
+                  </a>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">Telefon</h3>
+                  <a href="tel:0735309125" className="text-primary hover:underline">
+                    073-530 91 25
                   </a>
                 </div>
               </div>
