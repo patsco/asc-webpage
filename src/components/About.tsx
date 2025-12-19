@@ -29,7 +29,7 @@ const About = () => {
   const sections = [{
     icon: GraduationCap,
     title: "Utbildning",
-    items: ["Master i pedagogik", "Lärarexamen i kemi- och biologi", "Kognitionsvetenskap och lärande i skolan", "Dyskalkyli och matematiksvårigheter", "Handledning, lärande och ledarskap inom skola och arbetsliv", "Vetenskapliga metoder och teorier inom pedagogik och didaktik II", "Aktionsforskning och skolutveckling", "Microsoft Ignite Conference, Chicago 2015"]
+    items: ["Master i pedagogik", "Lärarexamen i kemi- och biologi", "Kognitionsvetenskap och lärande i skolan", "Dyskalkyli och matematiksvårigheter", "Handledning, lärande och ledarskap inom skola och arbetsliv", "Vetenskapliga metoder och teorier inom pedagogik och didaktik II", "Aktionsforskning och skolutveckling", "Microsoft Ignite Conference, Chicago"]
   }, {
     icon: Briefcase,
     title: "Erfarenhet",
@@ -90,7 +90,7 @@ const About = () => {
                     <p className="text-sm text-muted-foreground">Marks kommun, 2024</p>
                   </div>
                   <div className="p-4 bg-background/80 rounded-lg border border-border/50">
-                    <p className="font-semibold text-foreground">"Excellent Award – Teacher of the Year"</p>
+                    <p className="font-semibold text-foreground">"Excellence Award – Teacher of the Year"</p>
                     <p className="text-sm text-muted-foreground">Bryssel, 2018</p>
                   </div>
                 </div>
